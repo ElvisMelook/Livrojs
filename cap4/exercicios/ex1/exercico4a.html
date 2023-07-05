@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4.a</title>
+</head>
+<body>
+    <form>
+        <h1>Programa Par ou Ímpar</h1>
+        <p>Número <input type="number" id="txtnumero"></p>
+        <input type="submit" value="Verificar se é impar ou par" >
+    </form>
+    <h3 id="reesp1"></h3>
+</body>
+<script>
+    const frm = document.querySelector('form')
+    const resp1 = document.querySelector('#reesp1')
+
+    frm.addEventListener('submit',(e)=>{
+        e.preventDefault()
+
+         const valor = Number(frm.txtnumero.value)
+         if(valor % 2 == 0){
+             resp1.innerHTML = `${valor} é PAR`
+         }else{
+             resp1.innerHTML = `${valor} é IMPAR`
+         }
+        
+    })
+</script>
+</html>

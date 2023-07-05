@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br  ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4.9</title>
+</head>
+
+<body>
+    <h1>Programa lado de Triângulo</h1>
+    <form>
+        <p>Lado A: <input type="number" id="ladoA" required></p>
+        <p>Lado B: <input type="number" id="ladoB" required></p>
+        <p>Lado C: <input type="number" id="ladoC" required></p>
+        <input type="submit" value="Verificar lados">
+    </form>
+    <h3 id="resp1"></h3>
+    <h3 id="resp2"></h3>
+</body>
+<script>
+    const frm = document.querySelector('form')
+    const resp1 = document.querySelector('#resp1')
+    const resp2 = document.querySelector('#resp2')
+
+    frm.addEventListener('submit', (e) => {
+
+        e.preventDefault()
+
+        const tA = Number(frm.ladoA.value)
+        const tB = Number(frm.ladoB.value)
+        const tC = Number(frm.ladoC.value)
+
+
+
+        if (tB + tC < tA || tB + tA < tC || tC + tA < tB) {
+            alert('Erro, um dos lados não pode ser maior que a soma dos ouros lados')
+        } else {
+
+            resp1.innerHTML = `Lados podem formar um triâgulo.`
+
+            if (tA == tB && tA == tC ) {
+                resp2.innerHTML = `Tipo: Equilátero`
+            }else if (tA == tB || tA == tC || tC == tB){
+                resp2.innerHTML = `Tipo: Isósceles`
+            }
+            else {
+                resp2.innerHTML = `Tipo: Escaleno`
+            }
+
+
+        }
+
+
+
+
+
+
+
+    })
+
+
+</script>
+
+</html>

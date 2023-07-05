@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4c</title>
+</head>
+<body>
+    <form>
+        <h1>Programa Parquímetro</h1>
+        <p>Valor R$: <input type="number" step="0.01" required id="txtvalor"></p>
+        <input type="submit" value="Confirmar Depósito">
+    </form>
+    <h3 id="resp1"></h3>
+    <h3 id="resp2"></h3>
+</body>
+<script>
+
+        const frm = document.querySelector('form')
+        const resp1 = document.querySelector('#resp1')
+        const resp2 = document.querySelector('#resp2')
+
+        frm.addEventListener('submit',(e)=>{
+            e.preventDefault()
+
+            const valor = frm.txtvalor.value
+
+            if(valor < 1 ){
+                alert(`Valor mínimo é R$: 1,00`)
+                resp1.innerHTML = ``
+                 resp2.innerHTML = ``
+            
+            }if(valor < 1.75 && valor >=1 ){
+                let troco =  valor - 1.00
+                 resp1.innerHTML = `Tempo: 30min`
+                 resp2.innerHTML = `Troco R$: ${troco.toFixed(2)}`
+                
+            }if(valor < 3.00 && valor > 1.75){
+
+                let troco = valor - 1.75
+                resp1.innerHTML = `Tempo: 60min`
+                resp2.innerHTML = `Troco R$: ${troco.toFixed(2)}`
+
+            }if(valor >=3){
+
+                let troco = valor -3.00
+                resp1.innerHTML = `Tempo: 120min`
+                 resp2.innerHTML = `Troco R$: ${troco.toFixed(2)}`
+            }
+
+
+
+            
+        })
+
+
+
+</script>
+</html>
